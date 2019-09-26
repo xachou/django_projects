@@ -4,10 +4,10 @@ from django.contrib import admin
 
 from catalog.models import Author, Genre, Book, BookInstance
 
-#admin.site.register(Book)
-#admin.site.register(Author)
+# admin.site.register(Book)
+# admin.site.register(Author)
 admin.site.register(Genre)
-#admin.site.register(BookInstance)
+# admin.site.register(BookInstance)
 
 # Define the admin class
 class AuthorAdmin(admin.ModelAdmin):
@@ -30,7 +30,7 @@ class BookAdmin(admin.ModelAdmin):
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
-    
+
     fieldsets = (
         (None, {
             'fields': ('book', 'imprint', 'id')
