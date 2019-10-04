@@ -1,12 +1,19 @@
 from django.urls import path
-from django.shortcuts import render
-from django.urls import include
-from django.contrib import admin
-
-# Create your views here.
 from . import views
-
 urlpatterns = [
+    path('', views.index, name='index'),    # New line as per tutorial
 ]
 
+# New lines below to serve static files in debug mode
+import os
+from django.urls import re_path
+from django.views.static import serve
+from django.conf import settings
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+urlpatterns += [
+    re_path(r'^static/(?P<path>.*)$', serve, {
+        'document_root': os.path.join(BASE_DIR, 'catalog/static'),
+    }),
+]
