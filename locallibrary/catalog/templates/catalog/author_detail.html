@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Author: {{ author.first_name }}, {{ author.last_name }}</h1>
+  <h1>Author: {{ author.last_name }}, {{ author.first_name }}</h1>
 
   <div style="margin-left:20px;margin-top:20px">
     {% if copy.status != 'a' %}
@@ -15,7 +15,7 @@
 
     {% for book in author.book_set.all %}
       <hr>
-      <a href=" 'book-detail' book.pk %}"> {{ book.title }}</a >
+      <a href="{{ book.get_absolute_url }}"> {{ book.title }}</a >
     {% endfor %}
   </div>
 {% endblock %}
